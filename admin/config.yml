@@ -1,17 +1,19 @@
 # =====================================================================
 # Configuração do painel /admin — Siqueira & Sousa Advogados
 #
-# Troque as duas linhas marcadas com "TROCAR AQUI" pelos seus dados,
-# depois de seguir o guia COMO-PUBLICAR-E-LOGAR.md
+# O login usa o próprio provedor OAuth do Netlify (não precisa de
+# Cloudflare Worker). Basta registrar um OAuth App no GitHub com a
+# callback https://api.netlify.com/auth/done e cadastrar o Client
+# ID/Secret em Project configuration > Access & security > OAuth,
+# no painel do Netlify.
 # =====================================================================
 
 backend:
   name: github
-  repo: SEU-USUARIO/SEU-REPOSITORIO   # TROCAR AQUI — ex: danilosousa/site-escritorio
+  repo: escritoriosiqueirasousaadv/site-escritorio
   branch: main
-  base_url: https://SEU-WORKER.workers.dev   # TROCAR AQUI — endereço do Cloudflare Worker (login)
 
-site_url: https://SEU-SITE.netlify.app       # TROCAR AQUI — endereço do seu site depois de publicado
+site_url: https://gorgeous-yeot-30a63f.netlify.app
 
 media_folder: "assets/img/blog"
 public_folder: "/assets/img/blog"

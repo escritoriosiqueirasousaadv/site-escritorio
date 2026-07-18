@@ -1,0 +1,34 @@
+# =====================================================================
+# Configuração do painel /admin — Siqueira & Sousa Advogados
+#
+# Troque as duas linhas marcadas com "TROCAR AQUI" pelos seus dados,
+# depois de seguir o guia COMO-PUBLICAR-E-LOGAR.md
+# =====================================================================
+
+backend:
+  name: github
+  repo: SEU-USUARIO/SEU-REPOSITORIO   # TROCAR AQUI — ex: danilosousa/site-escritorio
+  branch: main
+  base_url: https://SEU-WORKER.workers.dev   # TROCAR AQUI — endereço do Cloudflare Worker (login)
+
+site_url: https://SEU-SITE.netlify.app       # TROCAR AQUI — endereço do seu site depois de publicado
+
+media_folder: "assets/img/blog"
+public_folder: "/assets/img/blog"
+
+collections:
+  - name: "posts"
+    label: "Textos do blog"
+    label_singular: "Texto"
+    folder: "content/posts"
+    create: true
+    delete: true
+    slug: "{{fields.id}}"
+    identifier_field: title
+    fields:
+      - { name: "id", label: "Identificador (sem espaços/acentos)", widget: "string", hint: "Usado só no link do texto. Ex: guarda-compartilhada" }
+      - { name: "title", label: "Título", widget: "string" }
+      - { name: "date", label: "Data", widget: "date", format: "YYYY-MM-DD" }
+      - { name: "dateLabel", label: "Data (como aparece no site)", widget: "string", hint: "Ex: 01 ago 2026" }
+      - { name: "excerpt", label: "Resumo (1 a 2 frases)", widget: "text" }
+      - { name: "body", label: "Texto completo", widget: "markdown", buttons: ["bold", "italic", "link"], modes: ["rich_text"] }

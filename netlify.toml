@@ -1,0 +1,13 @@
+# Configuração de publicação no Netlify.
+# Toda vez que você salva um texto pelo painel /admin, o Netlify roda o
+# comando abaixo sozinho, que atualiza o blog do site. Você não precisa
+# mexer neste arquivo.
+
+[build]
+  command = "node scripts/build-posts.js"
+  publish = "."
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
